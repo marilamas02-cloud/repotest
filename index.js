@@ -583,34 +583,55 @@
 // 1. comer (calorias) => aumentar calorias
 // 2. actividad () => disminuya las calorias segun actividad
 
-class Persona {
-  constructor(nombre, apellido, edad, calorias) {
-    this.nombre = nombre;
-    this.apellido = apellido;
-    this.edad = edad;
-    this.calorias = calorias;
-  }
-  comer = (energia) => {
-    this.calorias = this.calorias + energia;
-    return `${this.nombre} aumento ${this.calorias} calorias`;
-  };
-  actividad = (consumo) => {
-    this.calorias = this.calorias - consumo;
-    return `dismuyeron las calorias y te quedan ${this.calorias}`;
-  };
-}
-const Resultado = new Persona("marisol", "lamas", 23, 100);
-console.log(Resultado.comer(1000));
-console.log(Resultado.actividad(500));
+// class Persona {
+//   constructor(nombre, apellido, edad, calorias) {
+//     this.nombre = nombre;
+//     this.apellido = apellido;
+//     this.edad = edad;
+//     this.calorias = calorias;
+//   }
+//   comer = (energia) => {
+//     this.calorias = this.calorias + energia;
+//     return `${this.nombre} aumento ${this.calorias} calorias`;
+//   };
+//   actividad = (consumo) => {
+//     this.calorias = this.calorias - consumo;
+//     return `dismuyeron las calorias y te quedan ${this.calorias}`;
+//   };
+// }
+// const Resultado = new Persona("marisol", "lamas", 23, 100);
+// console.log(Resultado.comer(1000));
+// console.log(Resultado.actividad(500));
 
-class Profesor extends Persona {
-  constructor(nombre, apellido, edad, calorias, materiaDictada) {
-    super(nombre, apellido, edad, calorias);
-    this.materiaDictada = materiaDictada;
+// class Profesor extends Persona {
+//   constructor(nombre, apellido, edad, calorias, materiaDictada) {
+//     super(nombre, apellido, edad, calorias);
+//     this.materiaDictada = materiaDictada;
+//   }
+//   comer = () => {
+//     return "No podes comer";
+//   };
+// }
+// const francoProf = new Profesor("Franco", "Diaz", 31, 100, "Programacion");
+// console.log(francoProf.comer(1000));
+
+// si el elemento es un numero par agregar CSSLayerStatementRule(fondoazul), sino no
+// const pElements = document.getElementsByTagName("p");
+// for (let i = 0; i < pElements.length; i++) {
+//   const element = pElements[i];
+//   element.innerHTML = i;
+//   if (i % 2 === 0) {
+//     element.classList.add("fondoAzul");
+//   }
+// }
+
+// crear una funcion a la que le tengo que pasar la cantidad de elementos a crear(p) y su elemento contenedor como parametros
+const div = document.querySelector("div");
+function crearElementoP(cantidad, contenedor) {
+  for (let i = 0; i < cantidad; i++) {
+    const p = document.createElement("p");
+    p.innerHTML = i;
+    contenedor.appendChild(p);
   }
-  comer = () => {
-    return "No podes comer";
-  };
 }
-const francoProf = new Profesor("Franco", "Diaz", 31, 100, "Programacion");
-console.log(francoProf.comer(1000));
+crearElementoP(1000, div);
