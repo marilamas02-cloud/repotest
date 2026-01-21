@@ -626,12 +626,67 @@
 // }
 
 // crear una funcion a la que le tengo que pasar la cantidad de elementos a crear(p) y su elemento contenedor como parametros
-const div = document.querySelector("div");
-function crearElementoP(cantidad, contenedor) {
-  for (let i = 0; i < cantidad; i++) {
-    const p = document.createElement("p");
-    p.innerHTML = i;
-    contenedor.appendChild(p);
+// const div = document.querySelector("div");
+// function crearElementoP(cantidad, contenedor) {
+//   for (let i = 0; i < cantidad; i++) {
+//     const p = document.createElement("p");
+//     p.innerHTML = i;
+//     contenedor.appendChild(p);
+//   }
+// }
+// crearElementoP(1000, div);
+
+const buttonId = document.getElementById("buttonId");
+const body = document.querySelector("body");
+let estadoMg = false;
+buttonId.innerText = "Me gusta";
+buttonId.addEventListener("click", () => {
+  estadoMg = !estadoMg;
+  buttonId.innerText = `Me gusta ${estadoMg === true ? "👍" : ""}`;
+  if (estadoMg === true) {
+    buttonId.classList.add("mg");
+    return;
   }
-}
-crearElementoP(1000, div);
+  buttonId.classList.remove("mg");
+});
+
+const buttonId = document.getElementById("buttonId");
+const contador = document.getElementById("contador");
+const button = document.getElementById("button");
+
+const body = document.querySelector("body");
+
+buttonId.innerText = "+";
+button.innerText = "-";
+
+let acumulador = 0;
+
+buttonId.addEventListener("click", () => {
+  acumulador++;
+  contador.innerText = acumulador;
+});
+
+button.addEventListener("click", () => {
+  if (acumulador === 0) {
+  }
+  acumulador--;
+  contador.innerText = acumulador;
+});
+
+const num1 = document.getElementById("num1");
+const num2 = document.getElementById("num2");
+const spanText = document.getElementById("spanText");
+const btnResultado = document.getElementById("btnResultado");
+let numero1 = 0;
+let numero2 = 0;
+
+buttonId.addEventListener("blur", (e) => {
+  numero1 = e.target.value;
+});
+
+button.addEventListener("blur", (e) => {
+  numero2 = e.target.value;
+});
+btnResultado.addEventListener("click", () => {
+  spanText.innerText = number(numero1) + number(numero2);
+});
