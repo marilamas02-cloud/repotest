@@ -654,7 +654,7 @@ const buttonId = document.getElementById("buttonId");
 const contador = document.getElementById("contador");
 const button = document.getElementById("button");
 
-const body = document.querySelector("body");
+const body1 = document.querySelector("body");
 
 buttonId.innerText = "+";
 button.innerText = "-";
