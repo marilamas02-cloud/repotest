@@ -636,57 +636,57 @@
 // }
 // crearElementoP(1000, div);
 
-const buttonId = document.getElementById("buttonId");
-const body = document.querySelector("body");
-let estadoMg = false;
-buttonId.innerText = "Me gusta";
-buttonId.addEventListener("click", () => {
-  estadoMg = !estadoMg;
-  buttonId.innerText = `Me gusta ${estadoMg === true ? "👍" : ""}`;
-  if (estadoMg === true) {
-    buttonId.classList.add("mg");
-    return;
-  }
-  buttonId.classList.remove("mg");
-});
+// const buttonId = document.getElementById("buttonId");
+// const body = document.querySelector("body");
+// let estadoMg = false;
+// buttonId.innerText = "Me gusta";
+// buttonId.addEventListener("click", () => {
+//   estadoMg = !estadoMg;
+//   buttonId.innerText = `Me gusta ${estadoMg === true ? "👍" : ""}`;
+//   if (estadoMg === true) {
+//     buttonId.classList.add("mg");
+//     return;
+//   }
+//   buttonId.classList.remove("mg");
+// });
 
-const buttonId = document.getElementById("buttonId");
-const contador = document.getElementById("contador");
-const button = document.getElementById("button");
+// const buttonId = document.getElementById("buttonId");
+// const contador = document.getElementById("contador");
+// const button = document.getElementById("button");
 
-const body1 = document.querySelector("body");
+// const body1 = document.querySelector("body");
 
-buttonId.innerText = "+";
-button.innerText = "-";
+// buttonId.innerText = "+";
+// button.innerText = "-";
 
-let acumulador = 0;
+// let acumulador = 0;
 
-buttonId.addEventListener("click", () => {
-  acumulador++;
-  contador.innerText = acumulador;
-});
+// buttonId.addEventListener("click", () => {
+//   acumulador++;
+//   contador.innerText = acumulador;
+// });
 
-button.addEventListener("click", () => {
-  if (acumulador === 0) {
-  }
-  acumulador--;
-  contador.innerText = acumulador;
-});
+// button.addEventListener("click", () => {
+//   if (acumulador === 0) {
+//   }
+//   acumulador--;
+//   contador.innerText = acumulador;
+// });
 
-const num1 = document.getElementById("num1");
-const num2 = document.getElementById("num2");
-const spanText = document.getElementById("spanText");
-const btnResultado = document.getElementById("btnResultado");
-let numero1 = 0;
-let numero2 = 0;
+// const num1 = document.getElementById("num1");
+// const num2 = document.getElementById("num2");
+// const spanText = document.getElementById("spanText");
+// const btnResultado = document.getElementById("btnResultado");
+// let numero1 = 0;
+// let numero2 = 0;
 
-buttonId.addEventListener("blur", (e) => {
-  numero1 = e.target.value;
-});
+// buttonId.addEventListener("blur", (e) => {
+//   numero1 = e.target.value;
+// });
 
-button.addEventListener("blur", (e) => {
-  numero2 = e.target.value;
-});
-btnResultado.addEventListener("click", () => {
-  spanText.innerText = number(numero1) + number(numero2);
-});
+// button.addEventListener("blur", (e) => {
+//   numero2 = e.target.value;
+// });
+// btnResultado.addEventListener("click", () => {
+//   spanText.innerText = number(numero1) + number(numero2);
+// });
