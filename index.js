@@ -690,3 +690,4 @@
 // btnResultado.addEventListener("click", () => {
 //   spanText.innerText = number(numero1) + number(numero2);
 // });
+
