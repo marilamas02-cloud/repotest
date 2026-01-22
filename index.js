@@ -653,14 +653,10 @@
 // const buttonId = document.getElementById("buttonId");
 // const contador = document.getElementById("contador");
 // const button = document.getElementById("button");
-
 // const body1 = document.querySelector("body");
-
 // buttonId.innerText = "+";
 // button.innerText = "-";
-
 // let acumulador = 0;
-
 // buttonId.addEventListener("click", () => {
 //   acumulador++;
 //   contador.innerText = acumulador;
@@ -691,3 +687,48 @@
 //   spanText.innerText = number(numero1) + number(numero2);
 // });
 
+const input = document.getElementById("itemInput");
+const button = document.getElementById("button1");
+const lista = document.getElementById("lista");
+button.addEventListener("click", function () {
+  if (input.value.trim() !== "") {
+    const valorInput = document.createElement("li");
+    valorInput.innerText = input.value;
+    lista.appendChild(valorInput);
+    input.value = "";
+  }
+});
+
+// crear un formulario y que resultado arroje una tarjeta con los datos
+
+// const datos = {
+//   nombre: "marisol",
+//   usuario: "",
+//   email: "",
+//   descripcion:
+//     "Fanático de la tecnología y profesor de las artes de programación con Javascript",
+//   imagen:
+//     "https://img.freepik.com/vector-gratis/ilustracion-joven-sonriente_1308-174669.jpg?semt=ais_incoming&w=740&q=80",
+// };
+
+// const tarjeta = () => {
+//   const contenedorTarjeta = document.getElementById("classCard");
+//   const contenedor = document.createElement("div");
+//   const img = document.createElement("img");
+//   const contenedor2 = document.createElement("div");
+//   const titulo = document.createElement("h5");
+//   const parrafo = document.createElement("p");
+//   const parrafo2 = document.createElement("p");
+//   const button = document.createElement("a");
+// };
+// columnaTarjeta.className = "col mt-5";
+// contenedor.className = "card";
+// img.className = "card-img-top";
+// img.setAttribute = `src, ${datos.imagen}`;
+// img.setAttribute = `alt, ${datos.imagen}`;
+// contenedor2.className = "card-body";
+// titulo.className = "card-title";
+// titulo.textContent = ` ${datos.nombre}`;
+// parrafo.className = "card-text";
+// parrafo2.className = "card";
+// button.className = "card";
