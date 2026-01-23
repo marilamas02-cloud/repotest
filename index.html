@@ -29,25 +29,38 @@
       Resultado de la suma:
       <span id="spanText"></span>
     </p> -->
-    <div>
+    <!-- <div>
       <input type="text" id="itemInput" />
       <button id="button1">Añadir</button>
       <ul id="lista"></ul>
-    </div> 
-    <!-- <div>
-      <form id="formulario">
-        <label for="name">Nombre</label>
-        <input id="nombre" type="text" />
-        <br />
-        <label for="usuario">usuario</label>
-        <input id="usuario" type="text" />
-        <br />
-        <label for="email">email</label>
-        <input id="email" type="email" />
-        <div><button>registrar</button></div>
+    </div> -->
+    <div>
+      <form id="userForm">
+        <label for="name">Nombre:</label>
+        <input id="nombre" type="text" name="name" />
+        <label for="apellido">Apellido:</label>
+        <input id="apellido" type="text" name="lastname" />
+        <label for="fecha">Fecha de nacimiento:</label>
+        <input id="fecha" type="date" name="birthDate" />
+        <label for="M">M:</label>
+        <input id="m" type="radio" name="sex" value="male" />
+        <label for="F">F</label>
+        <input id="f" type="radio" name="sex" value="female" />
+        <button>guardar</button>
       </form>
+      <table border="3">
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>F. Nacimiento</th>
+          <th>Sexo</th>
+        </tr>
+        <tbody id="trBody"></tbody>
+      </table>
     </div>
-    <div class="classCard" id="contenedorTarjeta"></div> -->
+
+    <!-- <div class="classCard" id="contenedorTarjeta"></div>  -->
   </body>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

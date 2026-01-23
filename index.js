@@ -687,17 +687,17 @@
 //   spanText.innerText = number(numero1) + number(numero2);
 // });
 
-const input = document.getElementById("itemInput");
-const button = document.getElementById("button1");
-const lista = document.getElementById("lista");
-button.addEventListener("click", function () {
-  if (input.value.trim() !== "") {
-    const valorInput = document.createElement("li");
-    valorInput.innerText = input.value;
-    lista.appendChild(valorInput);
-    input.value = "";
-  }
-});
+// const input = document.getElementById("itemInput");
+// const button = document.getElementById("button1");
+// const lista = document.getElementById("lista");
+// button.addEventListener("click", function () {
+//   if (input.value.trim() !== "") {
+//     const valorInput = document.createElement("li");
+//     valorInput.innerText = input.value;
+//     lista.appendChild(valorInput);
+//     input.value = "";
+//   }
+// });
 
 // crear un formulario y que resultado arroje una tarjeta con los datos
 
@@ -732,3 +732,45 @@ button.addEventListener("click", function () {
 // parrafo.className = "card-text";
 // parrafo2.className = "card";
 // button.className = "card";
+
+const userForm = document.getElementById("userForm");
+const trBody = document.getElementById("trBody");
+let userDB = [];
+userForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+  let data = Object.fromEntries(formData);
+  const idGenerado = numAleatorio(5);
+  data.id = idGenerado;
+  userDB.push(data);
+  trBody.innerHTML = "";
+  userDB.forEach((user) => {
+    const tdElement = `
+    <tr>
+      <td>${user.id}</td>
+      <td>${user.name}</td>
+      <td>${user.lastname}</td>
+      <td>${user.birthDate}</td>
+      <td>${user.sex}</td>
+    </tr>
+    `;
+    trBody.innerHTML += tdElement;
+  });
+
+  // e.target.removeEventListener();
+  e.target.reset();
+  console.log(userDB);
+});
+
+// devolver un numero entero aleatorio a partir de la cant de digitos que yo le pase
+
+function numAleatorio(digitos) {
+  let acumulador = [];
+  for (let i = 0; i < digitos; i++) {
+    const numRandom = parseInt(Math.random() * 9);
+    acumulador.push(numRandom);
+  }
+  return parseInt(acumulador.join(""));
+}
+console.log(numAleatorio(5));
