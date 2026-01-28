@@ -10,6 +10,10 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -37,15 +41,15 @@
     <div>
       <form id="userForm">
         <label for="name">Nombre:</label>
-        <input id="nombre" type="text" name="name" />
+        <input id="nombre" type="text" name="name" required />
         <label for="apellido">Apellido:</label>
-        <input id="apellido" type="text" name="lastname" />
+        <input id="apellido" type="text" name="lastname" required />
         <label for="fecha">Fecha de nacimiento:</label>
-        <input id="fecha" type="date" name="birthDate" />
+        <input id="fecha" type="date" name="birthDate" required />
         <label for="M">M:</label>
-        <input id="m" type="radio" name="sex" value="male" />
+        <input id="m" type="radio" name="sex" value="M" required />
         <label for="F">F</label>
-        <input id="f" type="radio" name="sex" value="female" />
+        <input id="f" type="radio" name="sex" value="F" required />
         <button>guardar</button>
       </form>
       <table border="3">
@@ -55,6 +59,7 @@
           <th>Apellido</th>
           <th>F. Nacimiento</th>
           <th>Sexo</th>
+          <th>Acciones</th>
         </tr>
         <tbody id="trBody"></tbody>
       </table>

@@ -736,41 +736,92 @@
 const userForm = document.getElementById("userForm");
 const trBody = document.getElementById("trBody");
 let userDB = [];
+let idToEdit = null;
+
 userForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const form = e.target;
   const formData = new FormData(form);
   let data = Object.fromEntries(formData);
-  const idGenerado = numAleatorio(5);
-  data.id = idGenerado;
-  userDB.push(data);
+  if (idToEdit) {
+    data.id = idToEdit;
+    userDB = userDB.map((user) => {
+      if (user.id == idToEdit) {
+        return (user = data);
+      }
+      return user;
+    });
+    idToEdit = null;
+  } else {
+    const idGenerado = numAleatorio(5);
+    data.id = idGenerado;
+    userDB.push(data);
+  }
   trBody.innerHTML = "";
+  console.log(userDB);
   userDB.forEach((user) => {
     const tdElement = `
-    <tr>
-      <td>${user.id}</td>
-      <td>${user.name}</td>
-      <td>${user.lastname}</td>
-      <td>${user.birthDate}</td>
-      <td>${user.sex}</td>
-    </tr>
-    `;
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.lastname}</td>
+                <td>${user.birthDate}</td>
+                <td>${user.city}</td>
+                <td>${user.sex}</td>
+                <td>
+                    <i class="bi bi-trash" onclick="deleteUser(${user.id})"></i>
+                    <i class="bi bi-pencil" onclick="updateUser(${user.id})"></i>
+                </td>
+            </tr>
+        `;
     trBody.innerHTML += tdElement;
   });
-
-  // e.target.removeEventListener();
   e.target.reset();
-  console.log(userDB);
 });
-
-// devolver un numero entero aleatorio a partir de la cant de digitos que yo le pase
 
 function numAleatorio(digitos) {
   let acumulador = [];
   for (let i = 0; i < digitos; i++) {
     const numRandom = parseInt(Math.random() * 9);
-    acumulador.push(numRandom);
+    acumulador.push(String(numRandom) || "0");
   }
-  return parseInt(acumulador.join(""));
+  return acumulador.join("");
 }
-console.log(numAleatorio(5));
+
+function deleteUser(id) {
+  const userFound = userDB.find((user) => user.id == id);
+  const continuar = confirm(`
+        Desea eliminar el usuario ${userFound.name}, id: ${userFound.id}`);
+  if (!continuar) {
+    return;
+  }
+  userDB = userDB.filter((user) => user.id != id);
+  trBody.innerHTML = "";
+  userDB.forEach((user) => {
+    const tdElement = `
+            <tr>
+                <td>${user.id}</td>
+                <td>${user.name}</td>
+                <td>${user.lastname}</td>
+                <td>${user.birthDate}</td>
+                <td>${user.city}</td>
+                <td>${user.sex}</td>
+                <td>
+                    <i class="bi bi-trash" onclick="deleteUser(${user.id})"></i>
+                    <i class="bi bi-pencil"></i>
+                </td>
+            </tr>
+        `;
+    trBody.innerHTML += tdElement;
+  });
+}
+
+function updateUser(id) {
+  const userFound = userDB.find((user) => user.id == id);
+  idToEdit = id;
+  userForm.name.value = userFound.name;
+  userForm.lastname.value = userFound.lastname;
+  userForm.birthDate.value = userFound.birthDate;
+  userForm.city.value = userFound.city;
+  userForm.sex.value = userFound.sex;
+}
